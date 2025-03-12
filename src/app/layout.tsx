@@ -1,6 +1,17 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import TopMenu from "@/components/TopMenu";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
+import { Roboto } from "next/font/google";
+import { ThemeProvider } from "@mui/material/styles";
+
+const roboto = Roboto({
+  weight: ["300", "400", "500", "700"],
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-roboto",
+});
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +27,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <AppRouterCacheProvider options={{ key: "css" }}>
+          <TopMenu />
+          {children}
+        </AppRouterCacheProvider>
+      </body>
     </html>
   );
 }
