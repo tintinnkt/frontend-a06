@@ -15,7 +15,7 @@ export default function InteractiveCard({ children }: InteractiveCardProps) {
 
   return (
     <div
-      className="flex flex-col w-[300px] rounded-lg transition-all overflow-hidden shadow-lg bg-white"
+      className="flex flex-col w-[300px] rounded-lg transition-all overflow-hidden shadow-lg bg-white hover:bg-neutral-200  hover:shadow-2xl"
       onMouseOver={handleMouseAction}
       onMouseOut={handleMouseAction}
     >
